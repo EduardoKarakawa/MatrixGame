@@ -3,6 +3,18 @@
 float Matrix3f::getValueOf(int i, int j) { return mat[i][j]; }
 void Matrix3f::setValueTo(int i, int j, float value) { mat[i][j] = value; }
 
+
+float Matrix3f::a() { return mat[0][0]; }
+float Matrix3f::b() { return mat[0][1]; }
+float Matrix3f::c() { return mat[0][2]; }
+float Matrix3f::d() { return mat[1][0]; }
+float Matrix3f::e() { return mat[1][1]; }
+float Matrix3f::f() { return mat[1][2]; }
+float Matrix3f::g() { return mat[2][0]; }
+float Matrix3f::h() { return mat[2][1]; }
+float Matrix3f::k() { return mat[2][2]; }
+
+
 Matrix3f Matrix3f::getMatrixNull() {
 	return Matrix3f(0, 0, 0,
 		0, 0, 0,
@@ -17,6 +29,8 @@ void Matrix3f::copyValue(Matrix3f& other) {
 	}
 }
 
+
+
 Matrix3f::Matrix3f() {
 	// Gera matris identidade
 	for (int i = 0; i < 3; i++) {
@@ -24,6 +38,19 @@ Matrix3f::Matrix3f() {
 			mat[i][j] = i == j ? 1 : 0;
 		}
 	}
+}
+
+Matrix3f::Matrix3f(float degree) {
+	float radian = degree * PI / 180.0f;
+	mat[0][0] = cosf(radian);
+	mat[0][1] = -sinf(radian);
+	mat[0][2] = 0;
+	mat[1][0] = sinf(radian);
+	mat[1][1] = cosf(radian);
+	mat[1][2] = 0;
+	mat[2][0] = 0;
+	mat[2][1] = 0;
+	mat[2][2] = 1;
 }
 
 Matrix3f::Matrix3f( float v1, float v2, float v3,
@@ -46,6 +73,8 @@ Matrix3f::Matrix3f(Matrix3f &other) {
 	// Construtor de copia
 	copyValue(other);
 }
+
+
 
 
 float Matrix3f::getDeterminant() {
@@ -235,7 +264,16 @@ Matrix3f Matrix3f::operator*= (float escalar){
 }
 
 
-ofVec2f Matrix3f::transform(const ofVec2f& vector, float z = 1.0f) const {
+ofVec2f Matrix3f::transform(const ofVec2f& vector, float z) const {
 	return ofVec2f( mat[0][0] * vector.x + mat[0][1] * vector.y + mat[0][2] * z,
 					mat[1][0] * vector.x + mat[1][1] * vector.y + mat[1][2] * z);
+}
+
+ofMatrix4x4 Matrix3f::to4x4() {
+	return ofMatrix4x4(
+		a(),  b(), 0.0f,  c(),
+		d(),  e(), 0.0f,  f(),
+		0.0, 0.0f, 1.0f, 0.0f,
+		g(),  h(), 0.0f, k());
+
 }

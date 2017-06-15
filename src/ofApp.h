@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "Matrix3x3.h"
+#include "Tanque.h"
 
 class ofApp : public ofBaseApp{
 
@@ -22,5 +22,6 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		Matrix3f teste;
+		float deltatime;
+		Tanque tanque1;
 };
