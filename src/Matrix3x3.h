@@ -31,10 +31,13 @@ class Matrix3f {
 
 		// Sobrecarga de Operadores
 		void Matrix3f::operator= (Matrix3f &other);
-		void Matrix3f::operator* (Matrix3f &other);
-		void Matrix3f::operator+= (Matrix3f &other);
+		Matrix3f Matrix3f::operator*= (Matrix3f &other);
+		Matrix3f Matrix3f::operator* (Matrix3f &other);
+		Matrix3f Matrix3f::operator+= (Matrix3f &other);
 		Matrix3f Matrix3f::operator+ (Matrix3f &other);
-		void Matrix3f::operator-= (Matrix3f &other);
+		Matrix3f Matrix3f::operator-= (Matrix3f &other);
 		Matrix3f Matrix3f::operator- (Matrix3f &other);
+		Matrix3f Matrix3f::operator* (float escalar);
+		Matrix3f Matrix3f::operator*= (float escalar);
 
 };

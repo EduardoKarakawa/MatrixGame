@@ -10,6 +10,12 @@ void ofApp::setup(){
 	std::cout << " --------------------------- " << std::endl;
 	teste.print();
 	std::cout << " --------------------------- " << std::endl;
+	teste * Matrix3f(2, 5, 3,
+					 3, 4, 1,
+					 1, 1, 2);
+	teste.print();
+
+	/*std::cout << " --------------------------- " << std::endl;
 	teste.getInverse().print();
 	std::cout << " --------------------------- " << std::endl;
 	teste.getTransposed().print();
@@ -28,7 +34,7 @@ void ofApp::setup(){
 
 
 	std::cout << " --------------------------- " << std::endl;
-	teste.print();
+	teste.print();*/
 }
 
 //--------------------------------------------------------------

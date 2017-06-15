@@ -63,7 +63,6 @@ float Matrix3f::getDeterminant() {
 	return determinant;
 }
 
-
 Matrix3f Matrix3f::getTransposed() {
 	// Pega a transposta sem mudar a matriz
 	Matrix3f transposed(
@@ -152,15 +151,16 @@ Matrix3f Matrix3f::operator+ (Matrix3f &other)
 	return result;
 }
 
-void Matrix3f::operator+= (Matrix3f &other)
+Matrix3f Matrix3f::operator+= (Matrix3f &other)
 {
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
 			mat[i][j] += other.getValueOf(i, j);
 		}
 	}
-}
 
+	return *this;
+}
 
 Matrix3f Matrix3f::operator- (Matrix3f &other)
 {
@@ -173,11 +173,63 @@ Matrix3f Matrix3f::operator- (Matrix3f &other)
 	return result;
 }
 
-void Matrix3f::operator-= (Matrix3f &other)
+Matrix3f Matrix3f::operator-= (Matrix3f &other)
 {
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
 			mat[i][j] -= other.getValueOf(i, j);
 		}
 	}
+	return *this;
+}
+
+Matrix3f Matrix3f::operator* (Matrix3f &other) {
+	Matrix3f result;
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			float value = 0;
+
+			for (int aux = 0; aux < 3; aux++) {
+				value += mat[i][aux] * other.getValueOf(aux, j);
+			}
+
+			result.setValueTo(i, j, value);
+		}
+	}
+
+	return result;
+}
+
+Matrix3f Matrix3f::operator*= (Matrix3f &other) {
+	Matrix3f result;
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			float value = 0;
+
+			for (int aux = 0; aux < 3; aux++) {
+				value += mat[i][aux] * other.getValueOf(aux, j);
+			}
+
+			mat[i][j] = value;
+		}
+	}
+
+	return *this;
+}
+
+Matrix3f Matrix3f::operator* (float escalar) {
+	Matrix3f result;
+	for (int i = 0; i < 3; ++i)
+		for (int j = 0; j < 3; ++j)
+			result.setValueTo(i, j, mat[i][j] * escalar);
+
+	return result;
+}
+
+Matrix3f Matrix3f::operator*= (float escalar){
+	for (int i = 0; i < 3; ++i)
+		for (int j = 0; j < 3; ++j)
+			mat[i][j] *= escalar;
+
+	return *this;
 }
