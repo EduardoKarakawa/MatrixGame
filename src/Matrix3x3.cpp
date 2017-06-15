@@ -233,3 +233,9 @@ Matrix3f Matrix3f::operator*= (float escalar){
 
 	return *this;
 }
+
+
+ofVec2f Matrix3f::transform(const ofVec2f& vector, float z = 1.0f) const {
+	return ofVec2f( mat[0][0] * vector.x + mat[0][1] * vector.y + mat[0][2] * z,
+					mat[1][0] * vector.x + mat[1][1] * vector.y + mat[1][2] * z);
+}

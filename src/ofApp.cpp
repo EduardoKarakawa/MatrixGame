@@ -2,39 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	teste.print();
-	teste = Matrix3f(2,5,3,
-					 3,4,1,
-					 1,1,2);
 
-	std::cout << " --------------------------- " << std::endl;
-	teste.print();
-	std::cout << " --------------------------- " << std::endl;
-	teste * Matrix3f(2, 5, 3,
-					 3, 4, 1,
-					 1, 1, 2);
-	teste.print();
-
-	/*std::cout << " --------------------------- " << std::endl;
-	teste.getInverse().print();
-	std::cout << " --------------------------- " << std::endl;
-	teste.getTransposed().print();
-	std::cout << " --------------------------- " << std::endl;
-	teste += Matrix3f(	2, 5, 3,
-						3, 4, 1,
-						1, 1, 2);
-	teste.print();
-	
-
-	std::cout << " --------------------------- " << std::endl;
-	(teste + Matrix3f(	2, 5, 3,
-						3, 4, 1,
-						1, 1, 2)).print();
-
-
-
-	std::cout << " --------------------------- " << std::endl;
-	teste.print();*/
 }
 
 //--------------------------------------------------------------

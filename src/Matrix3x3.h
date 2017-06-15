@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "ofVec2f.h"
 
 class Matrix3f {
 	private:
@@ -25,9 +26,15 @@ class Matrix3f {
 		float getDeterminant();
 		Matrix3f getTransposed();
 		Matrix3f getInverse();
+		
 		void setValueTo(int i, int j, float value);
 		void setTransposed();
+		
+
 		void print();
+
+
+		ofVec2f transform(const ofVec2f& vector, float z = 1.0f) const;
 
 		// Sobrecarga de Operadores
 		void Matrix3f::operator= (Matrix3f &other);
@@ -39,5 +46,6 @@ class Matrix3f {
 		Matrix3f Matrix3f::operator- (Matrix3f &other);
 		Matrix3f Matrix3f::operator* (float escalar);
 		Matrix3f Matrix3f::operator*= (float escalar);
+
 
 };
