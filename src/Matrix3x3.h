@@ -7,8 +7,6 @@ class Matrix3f {
 	private:
 		float mat[3][3];
 
-
-
 	private:
 		Matrix3f getMatrixNull();
 		void copyValue(Matrix3f& other);
@@ -28,7 +26,9 @@ class Matrix3f {
 		float getDeterminant();
 		Matrix3f getTransposed();
 		Matrix3f getInverse();
-		
+		Matrix3f translate(float x, float y);
+		Matrix3f scale(float w, float h);
+		Matrix3f rotate(float degree);
 
 		float a();
 		float b(); 
@@ -59,6 +59,7 @@ class Matrix3f {
 		Matrix3f Matrix3f::operator- (Matrix3f &other);
 		Matrix3f Matrix3f::operator* (float escalar);
 		Matrix3f Matrix3f::operator*= (float escalar);
+
 
 
 		ofVec2f transform(const ofVec2f& vector, float z = 1.0f) const;

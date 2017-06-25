@@ -175,12 +175,14 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Bullet.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Matrix3x3.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Tanque.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Bullet.h" />
     <ClInclude Include="src\Matrix3x3.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Tanque.h" />

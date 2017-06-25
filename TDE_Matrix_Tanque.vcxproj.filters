@@ -9,6 +9,7 @@
     </ClCompile>
     <ClCompile Include="src\Matrix3x3.cpp" />
     <ClCompile Include="src\Tanque.cpp" />
+    <ClCompile Include="src\Bullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -24,6 +25,7 @@
     </ClInclude>
     <ClInclude Include="src\Matrix3x3.h" />
     <ClInclude Include="src\Tanque.h" />
+    <ClInclude Include="src\Bullet.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
